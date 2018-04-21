@@ -1,0 +1,5 @@
+com\blaham15\chessgame\MainApp.class
+Main.class
+com\blaham15\chessgame\FXMLController.class
+chess\Spot.class
+chess\Board.class
