@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>com.blaham15.chessgame.MainApp</mainClass>
+        <mainClass>com.blaham15.engine.board.Main</mainClass>
     </properties>
 
     <organization>
@@ -75,7 +75,6 @@
                         </goals>
                         <configuration>
                             <executable>${java.home}/bin/java</executable>
-                            <commandlineArgs>${runfx.args}</commandlineArgs>
                         </configuration>
                     </execution>
                 </executions>  

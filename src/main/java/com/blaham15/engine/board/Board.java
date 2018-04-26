@@ -1,6 +1,7 @@
-//package com.blaham15.chessgame;
+package com.blaham15.engine.board;
+
 //
-//public class Board {
+public class Board {
 //    Tile[][] board = new Tile[8][8];
 //
 //
@@ -81,6 +82,6 @@
 //
 //
 //
-//}
+}
 //
 //
