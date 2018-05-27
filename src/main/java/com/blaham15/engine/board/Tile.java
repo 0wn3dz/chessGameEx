@@ -16,13 +16,20 @@ public abstract class Tile {
     private static Map<Integer, EmptyTile> createAllPossibleEmptyTiles() {
 
         final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < BoardUtils.NUM_TILES; i++) {
             emptyTileMap.put(i, new EmptyTile(i));
         }
         return ImmutableMap.copyOf(emptyTileMap);
     }
 
 
+    /**
+     * A constructor, creates a Tile based on input parameters     *
+     *
+     * @param tileCoordinate coordinate at which a tile should be created
+     * @param piece          a piece which should be put on that tile
+     * @return if a piece is not null, calls OccupiedTile constructor, otherwise marks tile as empty
+     */
     public static Tile createTile(final int tileCoordinate, final Piece piece) {
         return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
     }
@@ -31,10 +38,12 @@ public abstract class Tile {
     private Tile(int tileCoordinate) {
         this.tileCoordinate = tileCoordinate;
     }
-
     public abstract Piece getPiece();
-
     public abstract boolean isTileOccupied();
+
+    public int getTileCoordinate() {
+        return this.tileCoordinate;
+    }
 
 
     public static final class EmptyTile extends Tile {
@@ -51,6 +60,11 @@ public abstract class Tile {
         @Override
         public Piece getPiece() {
             return null;
+        }
+
+        @Override
+        public String toString() {
+            return "-";
         }
     }
 
@@ -72,6 +86,11 @@ public abstract class Tile {
         @Override
         public Piece getPiece() {
             return pieceOnTile;
+        }
+
+        @Override
+        public String toString() {
+            return getPiece().getPieceAlliance().isWhite() ? getPiece().toString().toLowerCase() : getPiece().toString();
         }
     }
 

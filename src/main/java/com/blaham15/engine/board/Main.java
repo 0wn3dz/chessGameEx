@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.blaham15.engine.board;
+
 import java.util.Scanner;
 
 
