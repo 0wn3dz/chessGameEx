@@ -214,12 +214,11 @@ public class Board {
          * @return the builder instance.
          */
         public Builder setMoveMaker(final Alliance alliance) {
-            this.nextMoveMaker = nextMoveMaker;
+            this.nextMoveMaker = alliance;
             return this;
         }
 
         public Board build() {
-
             return new Board(this);
         }
 
