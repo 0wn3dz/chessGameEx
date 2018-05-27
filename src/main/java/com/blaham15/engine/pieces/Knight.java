@@ -53,18 +53,14 @@ public class Knight extends Piece {
         final List<Move> legalMoves = new ArrayList<>();
 
         for (final int currentCandidateOffset : CANDIDATE_MOVE_COORDS) {
-
             final int candidateDestinationCoordinate = this.piecePosition + currentCandidateOffset;
-
             if (BoardUtils.isValidTileCoordinate(candidateDestinationCoordinate)) {
-
                 if (isFirstColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isSecondColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isSeventhColumnExclusion(this.piecePosition, currentCandidateOffset) ||
                         isEighthColumnExclusion(this.piecePosition, currentCandidateOffset)) {
                     continue;
                 }
-
                 final Tile candidateDestinationTile = board.getTile(candidateDestinationCoordinate);
 
                 if (!candidateDestinationTile.isTileOccupied()) {
